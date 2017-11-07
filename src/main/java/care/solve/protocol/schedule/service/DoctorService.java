@@ -1,14 +1,14 @@
 package care.solve.protocol.schedule.service;
 
-import care.solve.protocol.schedule.entity.DoctorPublic;
+import care.solve.protocol.schedule.entity.Doctor;
 
 import java.io.IOException;
 import java.util.List;
 
 public interface DoctorService {
-    DoctorPublic create(DoctorPublic doctorPublic);
+    Doctor create(Doctor doctor);
 
-    DoctorPublic get(String doctorId) throws IOException;
+    Doctor get(String doctorId) throws IOException;
 
-    List<DoctorPublic> getAll() throws IOException;
+    List<Doctor> getAll() throws IOException;
 }

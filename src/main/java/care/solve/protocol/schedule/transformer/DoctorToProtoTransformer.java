@@ -1,16 +1,16 @@
 package care.solve.protocol.schedule.transformer;
 
-import care.solve.protocol.schedule.entity.DoctorPublic;
+import care.solve.protocol.schedule.entity.Doctor;
 import care.solve.protocol.schedule.entity.ScheduleProtos;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DoctorToProtoTransformer implements ProtoTransformer<DoctorPublic, ScheduleProtos.DoctorPublic> {
+public class DoctorToProtoTransformer implements ProtoTransformer<Doctor, ScheduleProtos.Doctor> {
 
     @Override
-    public ScheduleProtos.DoctorPublic transformToProto(DoctorPublic doctor) {
+    public ScheduleProtos.Doctor transformToProto(Doctor doctor) {
 
-        return ScheduleProtos.DoctorPublic.newBuilder()
+        return ScheduleProtos.Doctor.newBuilder()
                 .setDoctorId(doctor.getId())
                 .setFirstName(doctor.getFirstName())
                 .setLastName(doctor.getLastName())
@@ -18,8 +18,8 @@ public class DoctorToProtoTransformer implements ProtoTransformer<DoctorPublic, 
     }
 
     @Override
-    public DoctorPublic transformFromProto(ScheduleProtos.DoctorPublic protoDoctor) {
-        return DoctorPublic.builder()
+    public Doctor transformFromProto(ScheduleProtos.Doctor protoDoctor) {
+        return Doctor.builder()
                 .id(protoDoctor.getDoctorId())
                 .firstName(protoDoctor.getFirstName())
                 .lastName(protoDoctor.getLastName())

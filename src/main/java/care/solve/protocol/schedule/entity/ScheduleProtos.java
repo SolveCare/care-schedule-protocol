@@ -14,8 +14,8 @@ public final class ScheduleProtos {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface PatientPublicOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:main.PatientPublic)
+  public interface PatientOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:main.Patient)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -29,18 +29,18 @@ public final class ScheduleProtos {
         getPatientIdBytes();
   }
   /**
-   * Protobuf type {@code main.PatientPublic}
+   * Protobuf type {@code main.Patient}
    */
-  public  static final class PatientPublic extends
+  public  static final class Patient extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:main.PatientPublic)
-      PatientPublicOrBuilder {
+      // @@protoc_insertion_point(message_implements:main.Patient)
+      PatientOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use PatientPublic.newBuilder() to construct.
-    private PatientPublic(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Patient.newBuilder() to construct.
+    private Patient(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private PatientPublic() {
+    private Patient() {
       patientId_ = "";
     }
 
@@ -49,7 +49,7 @@ public final class ScheduleProtos {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PatientPublic(
+    private Patient(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -92,14 +92,14 @@ public final class ScheduleProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_PatientPublic_descriptor;
+      return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_Patient_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_PatientPublic_fieldAccessorTable
+      return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_Patient_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic.class, care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic.Builder.class);
+              care.solve.protocol.schedule.entity.ScheduleProtos.Patient.class, care.solve.protocol.schedule.entity.ScheduleProtos.Patient.Builder.class);
     }
 
     public static final int PATIENTID_FIELD_NUMBER = 1;
@@ -172,10 +172,10 @@ public final class ScheduleProtos {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic)) {
+      if (!(obj instanceof care.solve.protocol.schedule.entity.ScheduleProtos.Patient)) {
         return super.equals(obj);
       }
-      care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic other = (care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic) obj;
+      care.solve.protocol.schedule.entity.ScheduleProtos.Patient other = (care.solve.protocol.schedule.entity.ScheduleProtos.Patient) obj;
 
       boolean result = true;
       result = result && getPatientId()
@@ -198,69 +198,69 @@ public final class ScheduleProtos {
       return hash;
     }
 
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseFrom(byte[] data)
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseFrom(java.io.InputStream input)
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseDelimitedFrom(java.io.InputStream input)
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseDelimitedFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -272,7 +272,7 @@ public final class ScheduleProtos {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic prototype) {
+    public static Builder newBuilder(care.solve.protocol.schedule.entity.ScheduleProtos.Patient prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -287,25 +287,25 @@ public final class ScheduleProtos {
       return builder;
     }
     /**
-     * Protobuf type {@code main.PatientPublic}
+     * Protobuf type {@code main.Patient}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:main.PatientPublic)
-        care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublicOrBuilder {
+        // @@protoc_insertion_point(builder_implements:main.Patient)
+        care.solve.protocol.schedule.entity.ScheduleProtos.PatientOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_PatientPublic_descriptor;
+        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_Patient_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_PatientPublic_fieldAccessorTable
+        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_Patient_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic.class, care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic.Builder.class);
+                care.solve.protocol.schedule.entity.ScheduleProtos.Patient.class, care.solve.protocol.schedule.entity.ScheduleProtos.Patient.Builder.class);
       }
 
-      // Construct using care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic.newBuilder()
+      // Construct using care.solve.protocol.schedule.entity.ScheduleProtos.Patient.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -329,23 +329,23 @@ public final class ScheduleProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_PatientPublic_descriptor;
+        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_Patient_descriptor;
       }
 
-      public care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic getDefaultInstanceForType() {
-        return care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic.getDefaultInstance();
+      public care.solve.protocol.schedule.entity.ScheduleProtos.Patient getDefaultInstanceForType() {
+        return care.solve.protocol.schedule.entity.ScheduleProtos.Patient.getDefaultInstance();
       }
 
-      public care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic build() {
-        care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic result = buildPartial();
+      public care.solve.protocol.schedule.entity.ScheduleProtos.Patient build() {
+        care.solve.protocol.schedule.entity.ScheduleProtos.Patient result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic buildPartial() {
-        care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic result = new care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic(this);
+      public care.solve.protocol.schedule.entity.ScheduleProtos.Patient buildPartial() {
+        care.solve.protocol.schedule.entity.ScheduleProtos.Patient result = new care.solve.protocol.schedule.entity.ScheduleProtos.Patient(this);
         result.patientId_ = patientId_;
         onBuilt();
         return result;
@@ -378,16 +378,16 @@ public final class ScheduleProtos {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic) {
-          return mergeFrom((care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic)other);
+        if (other instanceof care.solve.protocol.schedule.entity.ScheduleProtos.Patient) {
+          return mergeFrom((care.solve.protocol.schedule.entity.ScheduleProtos.Patient)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic other) {
-        if (other == care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic.getDefaultInstance()) return this;
+      public Builder mergeFrom(care.solve.protocol.schedule.entity.ScheduleProtos.Patient other) {
+        if (other == care.solve.protocol.schedule.entity.ScheduleProtos.Patient.getDefaultInstance()) return this;
         if (!other.getPatientId().isEmpty()) {
           patientId_ = other.patientId_;
           onChanged();
@@ -405,11 +405,11 @@ public final class ScheduleProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic parsedMessage = null;
+        care.solve.protocol.schedule.entity.ScheduleProtos.Patient parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic) e.getUnfinishedMessage();
+          parsedMessage = (care.solve.protocol.schedule.entity.ScheduleProtos.Patient) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -498,46 +498,46 @@ public final class ScheduleProtos {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:main.PatientPublic)
+      // @@protoc_insertion_point(builder_scope:main.Patient)
     }
 
-    // @@protoc_insertion_point(class_scope:main.PatientPublic)
-    private static final care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:main.Patient)
+    private static final care.solve.protocol.schedule.entity.ScheduleProtos.Patient DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic();
+      DEFAULT_INSTANCE = new care.solve.protocol.schedule.entity.ScheduleProtos.Patient();
     }
 
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic getDefaultInstance() {
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Patient getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<PatientPublic>
-        PARSER = new com.google.protobuf.AbstractParser<PatientPublic>() {
-      public PatientPublic parsePartialFrom(
+    private static final com.google.protobuf.Parser<Patient>
+        PARSER = new com.google.protobuf.AbstractParser<Patient>() {
+      public Patient parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PatientPublic(input, extensionRegistry);
+          return new Patient(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<PatientPublic> parser() {
+    public static com.google.protobuf.Parser<Patient> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<PatientPublic> getParserForType() {
+    public com.google.protobuf.Parser<Patient> getParserForType() {
       return PARSER;
     }
 
-    public care.solve.protocol.schedule.entity.ScheduleProtos.PatientPublic getDefaultInstanceForType() {
+    public care.solve.protocol.schedule.entity.ScheduleProtos.Patient getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface DoctorPublicOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:main.DoctorPublic)
+  public interface DoctorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:main.Doctor)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -571,18 +571,18 @@ public final class ScheduleProtos {
         getLastNameBytes();
   }
   /**
-   * Protobuf type {@code main.DoctorPublic}
+   * Protobuf type {@code main.Doctor}
    */
-  public  static final class DoctorPublic extends
+  public  static final class Doctor extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:main.DoctorPublic)
-      DoctorPublicOrBuilder {
+      // @@protoc_insertion_point(message_implements:main.Doctor)
+      DoctorOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use DoctorPublic.newBuilder() to construct.
-    private DoctorPublic(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Doctor.newBuilder() to construct.
+    private Doctor(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private DoctorPublic() {
+    private Doctor() {
       doctorId_ = "";
       firstName_ = "";
       lastName_ = "";
@@ -593,7 +593,7 @@ public final class ScheduleProtos {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DoctorPublic(
+    private Doctor(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -648,14 +648,14 @@ public final class ScheduleProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_DoctorPublic_descriptor;
+      return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_Doctor_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_DoctorPublic_fieldAccessorTable
+      return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_Doctor_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.class, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder.class);
+              care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.class, care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder.class);
     }
 
     public static final int DOCTORID_FIELD_NUMBER = 1;
@@ -808,10 +808,10 @@ public final class ScheduleProtos {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic)) {
+      if (!(obj instanceof care.solve.protocol.schedule.entity.ScheduleProtos.Doctor)) {
         return super.equals(obj);
       }
-      care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic other = (care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic) obj;
+      care.solve.protocol.schedule.entity.ScheduleProtos.Doctor other = (care.solve.protocol.schedule.entity.ScheduleProtos.Doctor) obj;
 
       boolean result = true;
       result = result && getDoctorId()
@@ -842,69 +842,69 @@ public final class ScheduleProtos {
       return hash;
     }
 
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseFrom(byte[] data)
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseFrom(java.io.InputStream input)
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseDelimitedFrom(java.io.InputStream input)
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseDelimitedFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parseFrom(
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -916,7 +916,7 @@ public final class ScheduleProtos {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic prototype) {
+    public static Builder newBuilder(care.solve.protocol.schedule.entity.ScheduleProtos.Doctor prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -931,25 +931,25 @@ public final class ScheduleProtos {
       return builder;
     }
     /**
-     * Protobuf type {@code main.DoctorPublic}
+     * Protobuf type {@code main.Doctor}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:main.DoctorPublic)
-        care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublicOrBuilder {
+        // @@protoc_insertion_point(builder_implements:main.Doctor)
+        care.solve.protocol.schedule.entity.ScheduleProtos.DoctorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_DoctorPublic_descriptor;
+        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_Doctor_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_DoctorPublic_fieldAccessorTable
+        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_Doctor_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.class, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder.class);
+                care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.class, care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder.class);
       }
 
-      // Construct using care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.newBuilder()
+      // Construct using care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -977,23 +977,23 @@ public final class ScheduleProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_DoctorPublic_descriptor;
+        return care.solve.protocol.schedule.entity.ScheduleProtos.internal_static_main_Doctor_descriptor;
       }
 
-      public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic getDefaultInstanceForType() {
-        return care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.getDefaultInstance();
+      public care.solve.protocol.schedule.entity.ScheduleProtos.Doctor getDefaultInstanceForType() {
+        return care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.getDefaultInstance();
       }
 
-      public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic build() {
-        care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic result = buildPartial();
+      public care.solve.protocol.schedule.entity.ScheduleProtos.Doctor build() {
+        care.solve.protocol.schedule.entity.ScheduleProtos.Doctor result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic buildPartial() {
-        care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic result = new care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic(this);
+      public care.solve.protocol.schedule.entity.ScheduleProtos.Doctor buildPartial() {
+        care.solve.protocol.schedule.entity.ScheduleProtos.Doctor result = new care.solve.protocol.schedule.entity.ScheduleProtos.Doctor(this);
         result.doctorId_ = doctorId_;
         result.firstName_ = firstName_;
         result.lastName_ = lastName_;
@@ -1028,16 +1028,16 @@ public final class ScheduleProtos {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic) {
-          return mergeFrom((care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic)other);
+        if (other instanceof care.solve.protocol.schedule.entity.ScheduleProtos.Doctor) {
+          return mergeFrom((care.solve.protocol.schedule.entity.ScheduleProtos.Doctor)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic other) {
-        if (other == care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.getDefaultInstance()) return this;
+      public Builder mergeFrom(care.solve.protocol.schedule.entity.ScheduleProtos.Doctor other) {
+        if (other == care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.getDefaultInstance()) return this;
         if (!other.getDoctorId().isEmpty()) {
           doctorId_ = other.doctorId_;
           onChanged();
@@ -1063,11 +1063,11 @@ public final class ScheduleProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic parsedMessage = null;
+        care.solve.protocol.schedule.entity.ScheduleProtos.Doctor parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic) e.getUnfinishedMessage();
+          parsedMessage = (care.solve.protocol.schedule.entity.ScheduleProtos.Doctor) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1294,39 +1294,39 @@ public final class ScheduleProtos {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:main.DoctorPublic)
+      // @@protoc_insertion_point(builder_scope:main.Doctor)
     }
 
-    // @@protoc_insertion_point(class_scope:main.DoctorPublic)
-    private static final care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:main.Doctor)
+    private static final care.solve.protocol.schedule.entity.ScheduleProtos.Doctor DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic();
+      DEFAULT_INSTANCE = new care.solve.protocol.schedule.entity.ScheduleProtos.Doctor();
     }
 
-    public static care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic getDefaultInstance() {
+    public static care.solve.protocol.schedule.entity.ScheduleProtos.Doctor getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DoctorPublic>
-        PARSER = new com.google.protobuf.AbstractParser<DoctorPublic>() {
-      public DoctorPublic parsePartialFrom(
+    private static final com.google.protobuf.Parser<Doctor>
+        PARSER = new com.google.protobuf.AbstractParser<Doctor>() {
+      public Doctor parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DoctorPublic(input, extensionRegistry);
+          return new Doctor(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<DoctorPublic> parser() {
+    public static com.google.protobuf.Parser<Doctor> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DoctorPublic> getParserForType() {
+    public com.google.protobuf.Parser<Doctor> getParserForType() {
       return PARSER;
     }
 
-    public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic getDefaultInstanceForType() {
+    public care.solve.protocol.schedule.entity.ScheduleProtos.Doctor getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1337,27 +1337,27 @@ public final class ScheduleProtos {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .main.DoctorPublic doctors = 1;</code>
+     * <code>repeated .main.Doctor doctors = 1;</code>
      */
-    java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic> 
+    java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.Doctor> 
         getDoctorsList();
     /**
-     * <code>repeated .main.DoctorPublic doctors = 1;</code>
+     * <code>repeated .main.Doctor doctors = 1;</code>
      */
-    care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic getDoctors(int index);
+    care.solve.protocol.schedule.entity.ScheduleProtos.Doctor getDoctors(int index);
     /**
-     * <code>repeated .main.DoctorPublic doctors = 1;</code>
+     * <code>repeated .main.Doctor doctors = 1;</code>
      */
     int getDoctorsCount();
     /**
-     * <code>repeated .main.DoctorPublic doctors = 1;</code>
+     * <code>repeated .main.Doctor doctors = 1;</code>
      */
-    java.util.List<? extends care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublicOrBuilder> 
+    java.util.List<? extends care.solve.protocol.schedule.entity.ScheduleProtos.DoctorOrBuilder> 
         getDoctorsOrBuilderList();
     /**
-     * <code>repeated .main.DoctorPublic doctors = 1;</code>
+     * <code>repeated .main.Doctor doctors = 1;</code>
      */
-    care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublicOrBuilder getDoctorsOrBuilder(
+    care.solve.protocol.schedule.entity.ScheduleProtos.DoctorOrBuilder getDoctorsOrBuilder(
         int index);
   }
   /**
@@ -1406,11 +1406,11 @@ public final class ScheduleProtos {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                doctors_ = new java.util.ArrayList<care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic>();
+                doctors_ = new java.util.ArrayList<care.solve.protocol.schedule.entity.ScheduleProtos.Doctor>();
                 mutable_bitField0_ |= 0x00000001;
               }
               doctors_.add(
-                  input.readMessage(care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.parser(), extensionRegistry));
+                  input.readMessage(care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.parser(), extensionRegistry));
               break;
             }
           }
@@ -1441,36 +1441,36 @@ public final class ScheduleProtos {
     }
 
     public static final int DOCTORS_FIELD_NUMBER = 1;
-    private java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic> doctors_;
+    private java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.Doctor> doctors_;
     /**
-     * <code>repeated .main.DoctorPublic doctors = 1;</code>
+     * <code>repeated .main.Doctor doctors = 1;</code>
      */
-    public java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic> getDoctorsList() {
+    public java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.Doctor> getDoctorsList() {
       return doctors_;
     }
     /**
-     * <code>repeated .main.DoctorPublic doctors = 1;</code>
+     * <code>repeated .main.Doctor doctors = 1;</code>
      */
-    public java.util.List<? extends care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublicOrBuilder> 
+    public java.util.List<? extends care.solve.protocol.schedule.entity.ScheduleProtos.DoctorOrBuilder> 
         getDoctorsOrBuilderList() {
       return doctors_;
     }
     /**
-     * <code>repeated .main.DoctorPublic doctors = 1;</code>
+     * <code>repeated .main.Doctor doctors = 1;</code>
      */
     public int getDoctorsCount() {
       return doctors_.size();
     }
     /**
-     * <code>repeated .main.DoctorPublic doctors = 1;</code>
+     * <code>repeated .main.Doctor doctors = 1;</code>
      */
-    public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic getDoctors(int index) {
+    public care.solve.protocol.schedule.entity.ScheduleProtos.Doctor getDoctors(int index) {
       return doctors_.get(index);
     }
     /**
-     * <code>repeated .main.DoctorPublic doctors = 1;</code>
+     * <code>repeated .main.Doctor doctors = 1;</code>
      */
-    public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublicOrBuilder getDoctorsOrBuilder(
+    public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorOrBuilder getDoctorsOrBuilder(
         int index) {
       return doctors_.get(index);
     }
@@ -1798,22 +1798,22 @@ public final class ScheduleProtos {
       }
       private int bitField0_;
 
-      private java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic> doctors_ =
+      private java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.Doctor> doctors_ =
         java.util.Collections.emptyList();
       private void ensureDoctorsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          doctors_ = new java.util.ArrayList<care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic>(doctors_);
+          doctors_ = new java.util.ArrayList<care.solve.protocol.schedule.entity.ScheduleProtos.Doctor>(doctors_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublicOrBuilder> doctorsBuilder_;
+          care.solve.protocol.schedule.entity.ScheduleProtos.Doctor, care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorOrBuilder> doctorsBuilder_;
 
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
-      public java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic> getDoctorsList() {
+      public java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.Doctor> getDoctorsList() {
         if (doctorsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(doctors_);
         } else {
@@ -1821,7 +1821,7 @@ public final class ScheduleProtos {
         }
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
       public int getDoctorsCount() {
         if (doctorsBuilder_ == null) {
@@ -1831,9 +1831,9 @@ public final class ScheduleProtos {
         }
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
-      public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic getDoctors(int index) {
+      public care.solve.protocol.schedule.entity.ScheduleProtos.Doctor getDoctors(int index) {
         if (doctorsBuilder_ == null) {
           return doctors_.get(index);
         } else {
@@ -1841,10 +1841,10 @@ public final class ScheduleProtos {
         }
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
       public Builder setDoctors(
-          int index, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic value) {
+          int index, care.solve.protocol.schedule.entity.ScheduleProtos.Doctor value) {
         if (doctorsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1858,10 +1858,10 @@ public final class ScheduleProtos {
         return this;
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
       public Builder setDoctors(
-          int index, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder builderForValue) {
+          int index, care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder builderForValue) {
         if (doctorsBuilder_ == null) {
           ensureDoctorsIsMutable();
           doctors_.set(index, builderForValue.build());
@@ -1872,9 +1872,9 @@ public final class ScheduleProtos {
         return this;
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
-      public Builder addDoctors(care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic value) {
+      public Builder addDoctors(care.solve.protocol.schedule.entity.ScheduleProtos.Doctor value) {
         if (doctorsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1888,10 +1888,10 @@ public final class ScheduleProtos {
         return this;
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
       public Builder addDoctors(
-          int index, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic value) {
+          int index, care.solve.protocol.schedule.entity.ScheduleProtos.Doctor value) {
         if (doctorsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1905,10 +1905,10 @@ public final class ScheduleProtos {
         return this;
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
       public Builder addDoctors(
-          care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder builderForValue) {
+          care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder builderForValue) {
         if (doctorsBuilder_ == null) {
           ensureDoctorsIsMutable();
           doctors_.add(builderForValue.build());
@@ -1919,10 +1919,10 @@ public final class ScheduleProtos {
         return this;
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
       public Builder addDoctors(
-          int index, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder builderForValue) {
+          int index, care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder builderForValue) {
         if (doctorsBuilder_ == null) {
           ensureDoctorsIsMutable();
           doctors_.add(index, builderForValue.build());
@@ -1933,10 +1933,10 @@ public final class ScheduleProtos {
         return this;
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
       public Builder addAllDoctors(
-          java.lang.Iterable<? extends care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic> values) {
+          java.lang.Iterable<? extends care.solve.protocol.schedule.entity.ScheduleProtos.Doctor> values) {
         if (doctorsBuilder_ == null) {
           ensureDoctorsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1948,7 +1948,7 @@ public final class ScheduleProtos {
         return this;
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
       public Builder clearDoctors() {
         if (doctorsBuilder_ == null) {
@@ -1961,7 +1961,7 @@ public final class ScheduleProtos {
         return this;
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
       public Builder removeDoctors(int index) {
         if (doctorsBuilder_ == null) {
@@ -1974,16 +1974,16 @@ public final class ScheduleProtos {
         return this;
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
-      public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder getDoctorsBuilder(
+      public care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder getDoctorsBuilder(
           int index) {
         return getDoctorsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
-      public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublicOrBuilder getDoctorsOrBuilder(
+      public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorOrBuilder getDoctorsOrBuilder(
           int index) {
         if (doctorsBuilder_ == null) {
           return doctors_.get(index);  } else {
@@ -1991,9 +1991,9 @@ public final class ScheduleProtos {
         }
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
-      public java.util.List<? extends care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublicOrBuilder> 
+      public java.util.List<? extends care.solve.protocol.schedule.entity.ScheduleProtos.DoctorOrBuilder> 
            getDoctorsOrBuilderList() {
         if (doctorsBuilder_ != null) {
           return doctorsBuilder_.getMessageOrBuilderList();
@@ -2002,33 +2002,33 @@ public final class ScheduleProtos {
         }
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
-      public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder addDoctorsBuilder() {
+      public care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder addDoctorsBuilder() {
         return getDoctorsFieldBuilder().addBuilder(
-            care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.getDefaultInstance());
+            care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.getDefaultInstance());
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
-      public care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder addDoctorsBuilder(
+      public care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder addDoctorsBuilder(
           int index) {
         return getDoctorsFieldBuilder().addBuilder(
-            index, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.getDefaultInstance());
+            index, care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.getDefaultInstance());
       }
       /**
-       * <code>repeated .main.DoctorPublic doctors = 1;</code>
+       * <code>repeated .main.Doctor doctors = 1;</code>
        */
-      public java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder> 
+      public java.util.List<care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder> 
            getDoctorsBuilderList() {
         return getDoctorsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublicOrBuilder> 
+          care.solve.protocol.schedule.entity.ScheduleProtos.Doctor, care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorOrBuilder> 
           getDoctorsFieldBuilder() {
         if (doctorsBuilder_ == null) {
           doctorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublic.Builder, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorPublicOrBuilder>(
+              care.solve.protocol.schedule.entity.ScheduleProtos.Doctor, care.solve.protocol.schedule.entity.ScheduleProtos.Doctor.Builder, care.solve.protocol.schedule.entity.ScheduleProtos.DoctorOrBuilder>(
                   doctors_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -4811,15 +4811,15 @@ public final class ScheduleProtos {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_main_PatientPublic_descriptor;
+    internal_static_main_Patient_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_main_PatientPublic_fieldAccessorTable;
+      internal_static_main_Patient_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_main_DoctorPublic_descriptor;
+    internal_static_main_Doctor_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_main_DoctorPublic_fieldAccessorTable;
+      internal_static_main_Doctor_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_main_DoctorCollection_descriptor;
   private static final 
@@ -4849,21 +4849,20 @@ public final class ScheduleProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024registerDoctor.proto\022\004main\"\"\n\rPatientP" +
-      "ublic\022\021\n\tPatientId\030\001 \001(\t\"E\n\014DoctorPublic" +
-      "\022\020\n\010DoctorId\030\001 \001(\t\022\021\n\tFirstName\030\002 \001(\t\022\020\n" +
-      "\010LastName\030\003 \001(\t\"7\n\020DoctorCollection\022#\n\007d" +
-      "octors\030\001 \003(\0132\022.main.DoctorPublic\"J\n\010Sche" +
-      "dule\022\022\n\nScheduleId\030\001 \001(\t\022\017\n\007OwnerId\030\002 \001(" +
-      "\t\022\031\n\005slots\030\003 \003(\0132\n.main.Slot\"\257\001\n\004Slot\022\016\n" +
-      "\006SlotId\030\001 \001(\t\022\021\n\tTimeStart\030\002 \001(\004\022\022\n\nTime" +
-      "Finish\030\003 \001(\004\022\"\n\tavaliable\030\004 \001(\0162\017.main.S" +
-      "lot.Type\0220\n\020registrationInfo\030\005 \001(\0132\026.mai",
-      "n.RegistrationInfo\"\032\n\004Type\022\010\n\004FREE\020\000\022\010\n\004" +
-      "BUSY\020\001\";\n\020RegistrationInfo\022\023\n\013Descriptio" +
-      "n\030\001 \001(\t\022\022\n\nAttendeeId\030\002 \001(\tB;\n#care.solv" +
-      "e.protocol.schedule.entityB\016ScheduleProt" +
-      "osZ\004mainb\006proto3"
+      "\n\024registerDoctor.proto\022\004main\"\034\n\007Patient\022" +
+      "\021\n\tPatientId\030\001 \001(\t\"?\n\006Doctor\022\020\n\010DoctorId" +
+      "\030\001 \001(\t\022\021\n\tFirstName\030\002 \001(\t\022\020\n\010LastName\030\003 " +
+      "\001(\t\"1\n\020DoctorCollection\022\035\n\007doctors\030\001 \003(\013" +
+      "2\014.main.Doctor\"J\n\010Schedule\022\022\n\nScheduleId" +
+      "\030\001 \001(\t\022\017\n\007OwnerId\030\002 \001(\t\022\031\n\005slots\030\003 \003(\0132\n" +
+      ".main.Slot\"\257\001\n\004Slot\022\016\n\006SlotId\030\001 \001(\t\022\021\n\tT" +
+      "imeStart\030\002 \001(\004\022\022\n\nTimeFinish\030\003 \001(\004\022\"\n\tav" +
+      "aliable\030\004 \001(\0162\017.main.Slot.Type\0220\n\020regist" +
+      "rationInfo\030\005 \001(\0132\026.main.RegistrationInfo",
+      "\"\032\n\004Type\022\010\n\004FREE\020\000\022\010\n\004BUSY\020\001\";\n\020Registra" +
+      "tionInfo\022\023\n\013Description\030\001 \001(\t\022\022\n\nAttende" +
+      "eId\030\002 \001(\tB;\n#care.solve.protocol.schedul" +
+      "e.entityB\016ScheduleProtosZ\004mainb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4877,17 +4876,17 @@ public final class ScheduleProtos {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_main_PatientPublic_descriptor =
+    internal_static_main_Patient_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_main_PatientPublic_fieldAccessorTable = new
+    internal_static_main_Patient_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_main_PatientPublic_descriptor,
+        internal_static_main_Patient_descriptor,
         new java.lang.String[] { "PatientId", });
-    internal_static_main_DoctorPublic_descriptor =
+    internal_static_main_Doctor_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_main_DoctorPublic_fieldAccessorTable = new
+    internal_static_main_Doctor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_main_DoctorPublic_descriptor,
+        internal_static_main_Doctor_descriptor,
         new java.lang.String[] { "DoctorId", "FirstName", "LastName", });
     internal_static_main_DoctorCollection_descriptor =
       getDescriptor().getMessageTypes().get(2);

@@ -5,10 +5,8 @@ import lombok.Data;
 
 @Data
 @Builder
-public class DoctorPublic {
+public class Patient {
 
     private String id;
-    private String firstName;
-    private String lastName;
 
 }

@@ -2,7 +2,7 @@ package care.solve.protocol.schedule.service.impl;
 
 import care.solve.fabric.service.HFClientFactory;
 import care.solve.fabric.service.TransactionService;
-import care.solve.protocol.schedule.entity.DoctorPublic;
+import care.solve.protocol.schedule.entity.Doctor;
 import care.solve.protocol.schedule.entity.ScheduleProtos;
 import care.solve.protocol.schedule.service.DoctorService;
 import care.solve.protocol.schedule.transformer.DoctorToProtoCollectionTransformer;
@@ -42,12 +42,12 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public DoctorPublic create(DoctorPublic doctorPublic) {
-        return publishDoctorToChaincode(doctorPublic);
+    public Doctor create(Doctor doctor) {
+        return publishDoctorToChaincode(doctor);
     }
 
-    public DoctorPublic publishDoctorToChaincode(DoctorPublic doctor) {
-        ScheduleProtos.DoctorPublic protoDoctor = doctorToProtoTransformer.transformToProto(doctor);
+    public Doctor publishDoctorToChaincode(Doctor doctor) {
+        ScheduleProtos.Doctor protoDoctor = doctorToProtoTransformer.transformToProto(doctor);
         String byteString = new String(protoDoctor.toByteArray());
         CompletableFuture<BlockEvent.TransactionEvent> futureEvents = transactionService.sendInvokeTransaction(
                 hfClientFactory.getClient(),
@@ -57,10 +57,10 @@ public class DoctorServiceImpl implements DoctorService {
                 "createDoctor",
                 new String[]{byteString});
 
-        ScheduleProtos.DoctorPublic savedProtoDoctor = null;
+        ScheduleProtos.Doctor savedProtoDoctor = null;
         try {
             byte[] payload = futureEvents.get().getTransactionActionInfo(0).getProposalResponsePayload();
-            savedProtoDoctor = ScheduleProtos.DoctorPublic.parseFrom(payload);
+            savedProtoDoctor = ScheduleProtos.Doctor.parseFrom(payload);
         } catch (InterruptedException | InvalidProtocolBufferException | ExecutionException e) {
             e.printStackTrace();
         }
@@ -69,7 +69,7 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public DoctorPublic get(String doctorId) throws IOException {
+    public Doctor get(String doctorId) throws IOException {
         ByteString protoDoctorByteString = transactionService.sendQueryTransaction(
                 hfClientFactory.getClient(),
                 chaincodeId,
@@ -77,12 +77,12 @@ public class DoctorServiceImpl implements DoctorService {
                 "getDoctor",
                 new String[]{doctorId});
 
-        ScheduleProtos.DoctorPublic protoDoctor = ScheduleProtos.DoctorPublic.parseFrom(protoDoctorByteString);
+        ScheduleProtos.Doctor protoDoctor = ScheduleProtos.Doctor.parseFrom(protoDoctorByteString);
         return doctorToProtoTransformer.transformFromProto(protoDoctor);
     }
 
     @Override
-    public List<DoctorPublic> getAll() throws IOException {
+    public List<Doctor> getAll() throws IOException {
         ByteString protoDoctorsByteString = transactionService.sendQueryTransaction(
                 hfClientFactory.getClient(),
                 chaincodeId,

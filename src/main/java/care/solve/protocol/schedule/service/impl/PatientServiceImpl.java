@@ -2,7 +2,7 @@ package care.solve.protocol.schedule.service.impl;
 
 
 import care.solve.fabric.service.TransactionService;
-import care.solve.protocol.schedule.entity.PatientPublic;
+import care.solve.protocol.schedule.entity.Patient;
 import care.solve.protocol.schedule.entity.ScheduleProtos;
 import care.solve.protocol.schedule.service.PatientService;
 import care.solve.protocol.schedule.transformer.PatientToProtoTransformer;
@@ -39,12 +39,12 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public PatientPublic create(PatientPublic patientPublic) throws InterruptedException, ExecutionException, InvalidProtocolBufferException {
-        return publishPatientToChaincode(patientPublic);
+    public Patient create(Patient patient) throws InterruptedException, ExecutionException, InvalidProtocolBufferException {
+        return publishPatientToChaincode(patient);
     }
 
-    public PatientPublic publishPatientToChaincode(PatientPublic patientPublic) throws ExecutionException, InterruptedException, InvalidProtocolBufferException {
-        ScheduleProtos.PatientPublic protoPatient = patientToProtoTransformer.transformToProto(patientPublic);
+    public Patient publishPatientToChaincode(Patient patient) throws ExecutionException, InterruptedException, InvalidProtocolBufferException {
+        ScheduleProtos.Patient protoPatient = patientToProtoTransformer.transformToProto(patient);
         String byteString = new String(protoPatient.toByteArray());
         CompletableFuture<BlockEvent.TransactionEvent> futureEvents = transactionService.sendInvokeTransaction(
                 peerAdminHFClient,
@@ -55,12 +55,12 @@ public class PatientServiceImpl implements PatientService {
                 new String[]{byteString});
 
         byte[] payload = futureEvents.get().getTransactionActionInfo(0).getProposalResponsePayload();
-        ScheduleProtos.PatientPublic savedProtoPatient = ScheduleProtos.PatientPublic.parseFrom(payload);
+        ScheduleProtos.Patient savedProtoPatient = ScheduleProtos.Patient.parseFrom(payload);
         return patientToProtoTransformer.transformFromProto(savedProtoPatient);
     }
 
     @Override
-    public PatientPublic get(String patientId) throws IOException {
+    public Patient get(String patientId) throws IOException {
         ByteString protoPatientByteString = transactionService.sendQueryTransaction(
                 peerAdminHFClient,
                 chaincodeId,
@@ -68,7 +68,7 @@ public class PatientServiceImpl implements PatientService {
                 "getPatient",
                 new String[]{patientId});
 
-        ScheduleProtos.PatientPublic protoPatient = ScheduleProtos.PatientPublic.parseFrom(protoPatientByteString);
+        ScheduleProtos.Patient protoPatient = ScheduleProtos.Patient.parseFrom(protoPatientByteString);
         return patientToProtoTransformer.transformFromProto(protoPatient);
     }
 }

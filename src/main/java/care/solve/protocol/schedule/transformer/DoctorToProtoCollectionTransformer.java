@@ -1,7 +1,7 @@
 package care.solve.protocol.schedule.transformer;
 
 
-import care.solve.protocol.schedule.entity.DoctorPublic;
+import care.solve.protocol.schedule.entity.Doctor;
 import care.solve.protocol.schedule.entity.ScheduleProtos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class DoctorToProtoCollectionTransformer implements ProtoTransformer<List<DoctorPublic>, ScheduleProtos.DoctorCollection> {
+public class DoctorToProtoCollectionTransformer implements ProtoTransformer<List<Doctor>, ScheduleProtos.DoctorCollection> {
 
     private DoctorToProtoTransformer doctorToProtoTransformer;
 
@@ -20,9 +20,9 @@ public class DoctorToProtoCollectionTransformer implements ProtoTransformer<List
     }
 
     @Override
-    public ScheduleProtos.DoctorCollection transformToProto(List<DoctorPublic> doctors) {
+    public ScheduleProtos.DoctorCollection transformToProto(List<Doctor> doctors) {
 
-        List<ScheduleProtos.DoctorPublic> protoDoctors = doctors.stream()
+        List<ScheduleProtos.Doctor> protoDoctors = doctors.stream()
                 .map(doctorToProtoTransformer::transformToProto)
                 .collect(Collectors.toList());
 
@@ -32,7 +32,7 @@ public class DoctorToProtoCollectionTransformer implements ProtoTransformer<List
     }
 
     @Override
-    public List<DoctorPublic> transformFromProto(ScheduleProtos.DoctorCollection protoDoctorCollection) {
+    public List<Doctor> transformFromProto(ScheduleProtos.DoctorCollection protoDoctorCollection) {
 
         return protoDoctorCollection.getDoctorsList().stream()
                 .map(doctorToProtoTransformer::transformFromProto)
