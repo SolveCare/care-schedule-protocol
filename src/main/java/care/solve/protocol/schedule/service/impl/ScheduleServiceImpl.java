@@ -54,7 +54,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                 chaincodeId,
                 healthChannel,
                 healthChannel.getPeers(),
-                "createSchedule",
+                ScheduleProtos.ScheduleFunctions.SCHEDULE_CREATE.name(),
                 new String[]{byteString});
 
         ScheduleProtos.Schedule savedSchedule = null;
@@ -78,7 +78,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                 chaincodeId,
                 healthChannel,
                 healthChannel.getPeers(),
-                "createSlot",
+                ScheduleProtos.SlotFunctions.SLOT_CREATE.name(),
                 new String[]{scheduleId, byteString});
 
         ScheduleProtos.Slot savedSlot = null;
@@ -101,7 +101,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                 chaincodeId,
                 healthChannel,
                 healthChannel.getPeers(),
-                "updateSlot",
+                ScheduleProtos.SlotFunctions.SLOT_UPDATE.name(),
                 new String[]{scheduleId, slotId, byteString});
     }
 
@@ -111,7 +111,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                 peerAdminHFClient,
                 chaincodeId,
                 healthChannel,
-                "getSchedule",
+                ScheduleProtos.ScheduleFunctions.SCHEDULE_GET_BY_OWNER_ID.name(),
                 new String[]{ownerId});
 
         ScheduleProtos.Schedule protoSchedule = ScheduleProtos.Schedule.parseFrom(protoScheduleByteString);

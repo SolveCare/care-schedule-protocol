@@ -1,20 +1,29 @@
-package main
+package impl
 
 import (
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	"fmt"
 	"encoding/json"
 	"errors"
+
+	careproto "../proto"
+	careprotocol "../../protocol"
 )
 
-type SchedulerImpl struct {
+type SchedulerDefault struct {
+	logger *shim.ChaincodeLogger
 }
 
-func (s SchedulerImpl) ConstructScheduleKey(ownerId string) string {
+func NewSchedulerDefault() careprotocol.Scheduler {
+	var logger = shim.NewLogger("scheduler_default")
+	return SchedulerDefault{logger}
+}
+
+func (s SchedulerDefault) ConstructScheduleKey(ownerId string) string {
 	return "schedule:ownerId:" + ownerId
 }
 
-func (s SchedulerImpl) Get(stub shim.ChaincodeStubInterface, ownerId string) (*Schedule, error) {
+func (s SchedulerDefault) GetByOwnerId(stub shim.ChaincodeStubInterface, ownerId string) (*careproto.Schedule, error) {
 	scheduleId := s.ConstructScheduleKey(ownerId)
 	scheduleBytes, err := stub.GetState(scheduleId)
 
@@ -22,29 +31,29 @@ func (s SchedulerImpl) Get(stub shim.ChaincodeStubInterface, ownerId string) (*S
 		return nil, err
 	}
 
-	var schedule Schedule
+	var schedule careproto.Schedule
 	if scheduleBytes == nil {
 		return nil, errors.New(fmt.Sprintf("Schedule with key '%v' not found", scheduleId))
 	} else {
 		json.Unmarshal(scheduleBytes, &schedule)
-		logger.Infof("Retrieve schedule: %v", schedule)
+		s.logger.Infof("Retrieve schedule: %v", schedule)
 	}
 
 	return &schedule, nil
 }
 
-func (s SchedulerImpl) Apply(stub shim.ChaincodeStubInterface, schedule Schedule) (*Schedule, error) {
+func (s SchedulerDefault) Save(stub shim.ChaincodeStubInterface, schedule careproto.Schedule) (*careproto.Schedule, error) {
 	scheduleKey := s.ConstructScheduleKey(schedule.OwnerId)
 
 	scheduleBytes, err := stub.GetState(scheduleKey)
 
 	if scheduleBytes != nil {
 		errorMsg := fmt.Sprintf("Schedule with key '%v' already exists", scheduleKey)
-		logger.Errorf(errorMsg)
+		s.logger.Errorf(errorMsg)
 		errors.New(errorMsg)
 	}
 
-	logger.Infof("Creating new schedule for owner %v", schedule.OwnerId)
+	s.logger.Infof("Creating new schedule for owner %v", schedule.OwnerId)
 
 	schedule.ScheduleId = scheduleKey;
 

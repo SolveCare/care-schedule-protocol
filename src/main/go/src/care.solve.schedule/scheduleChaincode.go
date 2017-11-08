@@ -4,6 +4,11 @@ import (
 	"crypto/x509"
 	"encoding/pem"
 
+	careprotocol "./protocol"
+	caresdk "./sdk"
+	careproto "./protocol/proto"
+	careimpl "./protocol/impl"
+
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	"github.com/golang/protobuf/proto"
 
@@ -14,42 +19,42 @@ import (
 var logger = shim.NewLogger("schedule_chaincode")
 
 type ScheduleChaincode struct {
-	scheduler SchedulerImpl
-	doctorService *DoctorService
-	patientService *PatientService
+	scheduler careprotocol.Scheduler
+	doctorService careprotocol.DoctorService
+	patientService careprotocol.PatientService
 
-	scheduleService *ScheduleService
+	scheduleService careprotocol.ScheduleService
 
-	dispatcher Dispatcher
+	dispatcher caresdk.Dispatcher
 }
 
 func (s *ScheduleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
-	s.scheduler = SchedulerImpl{}
+	s.scheduler = careimpl.NewSchedulerDefault()
 	logger.Infof("Created Scheduler: %v", s.scheduler)
 
-	s.doctorService = &DoctorService{}
+	s.doctorService = careimpl.NewDoctorService()
 	logger.Infof("Created DoctorService: %v", s.doctorService)
 
-	s.patientService = &PatientService{}
+	s.patientService = careimpl.NewPatientService()
 	logger.Infof("Created PatientService: %v", s.patientService)
 
-	s.scheduleService = new(ScheduleService).New(&s.scheduler, s.doctorService, s.patientService)
+	s.scheduleService = careimpl.NewScheduleService(s.scheduler)
 	logger.Infof("Created ScheduleService: %v", s.scheduleService)
 
-	s.dispatcher = Dispatcher{}
+	s.dispatcher = caresdk.Dispatcher{}
 
-	s.dispatcher.AddMapping(PatientFunctions_PATIENT_GET_BY_ID.String(), s.getPatientById)
-	s.dispatcher.AddMapping(PatientFunctions_PATIENT_CREATE.String(), s.createPatient)
+	s.dispatcher.AddMapping(careproto.PatientFunctions_PATIENT_GET_BY_ID.String(), s.getPatientById)
+	s.dispatcher.AddMapping(careproto.PatientFunctions_PATIENT_CREATE.String(), s.createPatient)
 
-	s.dispatcher.AddMapping(DoctorFunctions_DOCTOR_CREATE.String(), s.createDoctor)
-	s.dispatcher.AddMapping(DoctorFunctions_DOCTOR_GET_BY_ID.String(), s.getDoctorById)
-	s.dispatcher.AddMapping(DoctorFunctions_DOCTOR_GET_ALL.String(), s.getAllDoctors)
+	s.dispatcher.AddMapping(careproto.DoctorFunctions_DOCTOR_CREATE.String(), s.createDoctor)
+	s.dispatcher.AddMapping(careproto.DoctorFunctions_DOCTOR_GET_BY_ID.String(), s.getDoctorById)
+	s.dispatcher.AddMapping(careproto.DoctorFunctions_DOCTOR_GET_ALL.String(), s.getAllDoctors)
 
-	s.dispatcher.AddMapping(ScheduleFunctions_SCHEDULE_GET_BY_OWNER_ID.String(), s.getScheduleByOwnerId)
-	s.dispatcher.AddMapping(ScheduleFunctions_SCHEDULE_CREATE.String(), s.createSchedule)
+	s.dispatcher.AddMapping(careproto.ScheduleFunctions_SCHEDULE_GET_BY_OWNER_ID.String(), s.getScheduleByOwnerId)
+	s.dispatcher.AddMapping(careproto.ScheduleFunctions_SCHEDULE_CREATE.String(), s.createSchedule)
 
-	s.dispatcher.AddMapping(SlotFunctions_SLOT_CREATE.String(), s.createSlot)
-	s.dispatcher.AddMapping(SlotFunctions_SLOT_UPDATE.String(), s.updateSlot)
+	s.dispatcher.AddMapping(careproto.SlotFunctions_SLOT_CREATE.String(), s.createSlot)
+	s.dispatcher.AddMapping(careproto.SlotFunctions_SLOT_UPDATE.String(), s.updateSlot)
 
 	return shim.Success(nil)
 }
@@ -67,11 +72,11 @@ func (s *ScheduleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response
 
 func (s *ScheduleChaincode) createPatient(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	encodedPatientByteString := args[0]
-	patient, err := s.patientService.decodeProtoByteString(encodedPatientByteString)
+	patient, err := s.patientService.DecodeProtoByteString(encodedPatientByteString)
 	if err != nil {
 		//return shim.Error(err.Error()) //todo: investigate 'proto: bad wiretype for field main.Patient.UserId: got wiretype 1, want 2'
 	}
-	savedPatient, err := s.patientService.savePatient(stub, *patient)
+	savedPatient, err := s.patientService.SavePatient(stub, *patient)
 	if err != nil {
 		return shim.Error(err.Error())
 	}
@@ -80,11 +85,11 @@ func (s *ScheduleChaincode) createPatient(stub shim.ChaincodeStubInterface, args
 
 func (s *ScheduleChaincode) createDoctor(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	encodedDoctorByteString := args[0]
-	doctor, err := s.doctorService.decodeProtoByteString(encodedDoctorByteString)
+	doctor, err := s.doctorService.DecodeProtoByteString(encodedDoctorByteString)
 	if err != nil {
 		return shim.Error(err.Error())
 	}
-	savedDoctor, err := s.doctorService.saveDoctor(stub, *doctor)
+	savedDoctor, err := s.doctorService.SaveDoctor(stub, *doctor)
 	if err != nil {
 		return shim.Error(err.Error())
 	}
@@ -93,7 +98,7 @@ func (s *ScheduleChaincode) createDoctor(stub shim.ChaincodeStubInterface, args 
 
 func (s *ScheduleChaincode) getDoctorById(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	doctorId := args[0]
-	doctor, err := s.doctorService.getDoctorById(stub, doctorId)
+	doctor, err := s.doctorService.GetDoctorById(stub, doctorId)
 	if err != nil {
 		return shim.Error(err.Error())
 	}
@@ -101,19 +106,19 @@ func (s *ScheduleChaincode) getDoctorById(stub shim.ChaincodeStubInterface, args
 }
 
 func (s *ScheduleChaincode) getAllDoctors(stub shim.ChaincodeStubInterface, args []string) pb.Response {
-	doctors, err := s.doctorService.getAllDoctors(stub)
+	doctors, err := s.doctorService.GetAllDoctors(stub)
 	if err != nil {
 		return shim.Error(err.Error())
 	}
 
-	doctorCollection := DoctorCollection{doctors}
+	doctorCollection := careproto.DoctorCollection{doctors}
 
 	return s.getResponseWithProto(&doctorCollection)
 }
 
 func (s *ScheduleChaincode) getPatientById(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	patientId := args[0]
-	patient, err := s.patientService.getPatientById(stub, patientId)
+	patient, err := s.patientService.GetPatientById(stub, patientId)
 	if err != nil {
 		return shim.Error(err.Error())
 	}
@@ -122,7 +127,7 @@ func (s *ScheduleChaincode) getPatientById(stub shim.ChaincodeStubInterface, arg
 
 func (s *ScheduleChaincode) getScheduleByOwnerId(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	ownerId := args[0]
-	schedule, err := s.scheduleService.getScheduleByOwnerId(stub, ownerId)
+	schedule, err := s.scheduleService.GetScheduleByOwnerId(stub, ownerId)
 	if err != nil {
 		return shim.Error(err.Error())
 	}
@@ -131,22 +136,22 @@ func (s *ScheduleChaincode) getScheduleByOwnerId(stub shim.ChaincodeStubInterfac
 
 func (s *ScheduleChaincode) createSchedule(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	scheduleByteString := args[0]
-	schedule, err := s.scheduleService.decodeScheduleByteString(scheduleByteString)
+	schedule, err := s.scheduleService.DecodeScheduleByteString(scheduleByteString)
 	if err != nil {
 		return shim.Error(err.Error())
 	}
-	createdSchedule, err := s.scheduleService.createSchedule(stub, *schedule)
+	createdSchedule, err := s.scheduleService.CreateSchedule(stub, *schedule)
 	return s.getResponseWithProto(createdSchedule)
 }
 
 func (s *ScheduleChaincode) createSlot(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	scheduleId := args[0]
 	slotByteString := args[1]
-	slot, err := s.scheduleService.decodeSlotByteString(slotByteString)
+	slot, err := s.scheduleService.DecodeSlotByteString(slotByteString)
 	if err != nil {
 		return shim.Error(err.Error())
 	}
-	createdSlot, err := s.scheduleService.createSlot(stub, scheduleId, *slot)
+	createdSlot, err := s.scheduleService.CreateSlot(stub, scheduleId, *slot)
 	return s.getResponseWithProto(createdSlot)
 }
 
@@ -154,11 +159,11 @@ func (s *ScheduleChaincode) updateSlot(stub shim.ChaincodeStubInterface, args []
 	scheduleId := args[0]
 	slotId := args[1]
 	slotByteString := args[2]
-	slot, err := s.scheduleService.decodeSlotByteString(slotByteString)
+	slot, err := s.scheduleService.DecodeSlotByteString(slotByteString)
 	if err != nil {
 		return shim.Error(err.Error())
 	}
-	err = s.scheduleService.updateSlot(stub, scheduleId, slotId, *slot)
+	err = s.scheduleService.UpdateSlot(stub, scheduleId, slotId, *slot)
 	return shim.Success(nil)
 }
 

@@ -5,7 +5,28 @@ package main;
 option java_package = "care.solve.protocol.schedule.entity";
 option java_outer_classname = "ScheduleProtos";
 
-option go_package = "main";
+option go_package = "protocol";
+
+enum DoctorFunctions {
+    DOCTOR_CREATE = 0;
+    DOCTOR_GET_BY_ID = 1;
+    DOCTOR_GET_ALL = 2;
+}
+
+enum PatientFunctions {
+    PATIENT_CREATE = 0;
+    PATIENT_GET_BY_ID = 1;
+}
+
+enum ScheduleFunctions {
+    SCHEDULE_CREATE = 0;
+    SCHEDULE_GET_BY_OWNER_ID = 1;
+}
+
+enum SlotFunctions {
+    SLOT_CREATE = 0;
+    SLOT_UPDATE = 1;
+}
 
 message Patient {
     string PatientId = 1;

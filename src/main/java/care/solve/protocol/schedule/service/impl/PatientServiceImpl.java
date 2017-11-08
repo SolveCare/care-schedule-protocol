@@ -51,7 +51,7 @@ public class PatientServiceImpl implements PatientService {
                 chaincodeId,
                 healthChannel,
                 healthChannel.getPeers(),
-                "createPatient",
+                ScheduleProtos.PatientFunctions.PATIENT_CREATE.name(),
                 new String[]{byteString});
 
         byte[] payload = futureEvents.get().getTransactionActionInfo(0).getProposalResponsePayload();
@@ -65,7 +65,7 @@ public class PatientServiceImpl implements PatientService {
                 peerAdminHFClient,
                 chaincodeId,
                 healthChannel,
-                "getPatient",
+                ScheduleProtos.PatientFunctions.PATIENT_GET_BY_ID.name(),
                 new String[]{patientId});
 
         ScheduleProtos.Patient protoPatient = ScheduleProtos.Patient.parseFrom(protoPatientByteString);

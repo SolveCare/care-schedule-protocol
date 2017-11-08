@@ -54,7 +54,7 @@ public class DoctorServiceImpl implements DoctorService {
                 chaincodeId,
                 healthChannel,
                 healthChannel.getPeers(),
-                "createDoctor",
+                ScheduleProtos.DoctorFunctions.DOCTOR_CREATE.name(),
                 new String[]{byteString});
 
         ScheduleProtos.Doctor savedProtoDoctor = null;
@@ -74,7 +74,7 @@ public class DoctorServiceImpl implements DoctorService {
                 hfClientFactory.getClient(),
                 chaincodeId,
                 healthChannel,
-                "getDoctor",
+                ScheduleProtos.DoctorFunctions.DOCTOR_GET_BY_ID.name(),
                 new String[]{doctorId});
 
         ScheduleProtos.Doctor protoDoctor = ScheduleProtos.Doctor.parseFrom(protoDoctorByteString);
@@ -87,7 +87,7 @@ public class DoctorServiceImpl implements DoctorService {
                 hfClientFactory.getClient(),
                 chaincodeId,
                 healthChannel,
-                "getAllDoctors",
+                ScheduleProtos.DoctorFunctions.DOCTOR_GET_ALL.name(),
                 new String[]{});
 
         ScheduleProtos.DoctorCollection protoDoctor = ScheduleProtos.DoctorCollection.parseFrom(protoDoctorsByteString);

@@ -14,6 +14,407 @@ public final class ScheduleProtos {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * Protobuf enum {@code main.DoctorFunctions}
+   */
+  public enum DoctorFunctions
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>DOCTOR_CREATE = 0;</code>
+     */
+    DOCTOR_CREATE(0),
+    /**
+     * <code>DOCTOR_GET_BY_ID = 1;</code>
+     */
+    DOCTOR_GET_BY_ID(1),
+    /**
+     * <code>DOCTOR_GET_ALL = 2;</code>
+     */
+    DOCTOR_GET_ALL(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>DOCTOR_CREATE = 0;</code>
+     */
+    public static final int DOCTOR_CREATE_VALUE = 0;
+    /**
+     * <code>DOCTOR_GET_BY_ID = 1;</code>
+     */
+    public static final int DOCTOR_GET_BY_ID_VALUE = 1;
+    /**
+     * <code>DOCTOR_GET_ALL = 2;</code>
+     */
+    public static final int DOCTOR_GET_ALL_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DoctorFunctions valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static DoctorFunctions forNumber(int value) {
+      switch (value) {
+        case 0: return DOCTOR_CREATE;
+        case 1: return DOCTOR_GET_BY_ID;
+        case 2: return DOCTOR_GET_ALL;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DoctorFunctions>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        DoctorFunctions> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DoctorFunctions>() {
+            public DoctorFunctions findValueByNumber(int number) {
+              return DoctorFunctions.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return care.solve.protocol.schedule.entity.ScheduleProtos.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final DoctorFunctions[] VALUES = values();
+
+    public static DoctorFunctions valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DoctorFunctions(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:main.DoctorFunctions)
+  }
+
+  /**
+   * Protobuf enum {@code main.PatientFunctions}
+   */
+  public enum PatientFunctions
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>PATIENT_CREATE = 0;</code>
+     */
+    PATIENT_CREATE(0),
+    /**
+     * <code>PATIENT_GET_BY_ID = 1;</code>
+     */
+    PATIENT_GET_BY_ID(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>PATIENT_CREATE = 0;</code>
+     */
+    public static final int PATIENT_CREATE_VALUE = 0;
+    /**
+     * <code>PATIENT_GET_BY_ID = 1;</code>
+     */
+    public static final int PATIENT_GET_BY_ID_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static PatientFunctions valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static PatientFunctions forNumber(int value) {
+      switch (value) {
+        case 0: return PATIENT_CREATE;
+        case 1: return PATIENT_GET_BY_ID;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<PatientFunctions>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        PatientFunctions> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<PatientFunctions>() {
+            public PatientFunctions findValueByNumber(int number) {
+              return PatientFunctions.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return care.solve.protocol.schedule.entity.ScheduleProtos.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final PatientFunctions[] VALUES = values();
+
+    public static PatientFunctions valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private PatientFunctions(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:main.PatientFunctions)
+  }
+
+  /**
+   * Protobuf enum {@code main.ScheduleFunctions}
+   */
+  public enum ScheduleFunctions
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>SCHEDULE_CREATE = 0;</code>
+     */
+    SCHEDULE_CREATE(0),
+    /**
+     * <code>SCHEDULE_GET_BY_OWNER_ID = 1;</code>
+     */
+    SCHEDULE_GET_BY_OWNER_ID(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>SCHEDULE_CREATE = 0;</code>
+     */
+    public static final int SCHEDULE_CREATE_VALUE = 0;
+    /**
+     * <code>SCHEDULE_GET_BY_OWNER_ID = 1;</code>
+     */
+    public static final int SCHEDULE_GET_BY_OWNER_ID_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ScheduleFunctions valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static ScheduleFunctions forNumber(int value) {
+      switch (value) {
+        case 0: return SCHEDULE_CREATE;
+        case 1: return SCHEDULE_GET_BY_OWNER_ID;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ScheduleFunctions>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ScheduleFunctions> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ScheduleFunctions>() {
+            public ScheduleFunctions findValueByNumber(int number) {
+              return ScheduleFunctions.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return care.solve.protocol.schedule.entity.ScheduleProtos.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final ScheduleFunctions[] VALUES = values();
+
+    public static ScheduleFunctions valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private ScheduleFunctions(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:main.ScheduleFunctions)
+  }
+
+  /**
+   * Protobuf enum {@code main.SlotFunctions}
+   */
+  public enum SlotFunctions
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>SLOT_CREATE = 0;</code>
+     */
+    SLOT_CREATE(0),
+    /**
+     * <code>SLOT_UPDATE = 1;</code>
+     */
+    SLOT_UPDATE(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>SLOT_CREATE = 0;</code>
+     */
+    public static final int SLOT_CREATE_VALUE = 0;
+    /**
+     * <code>SLOT_UPDATE = 1;</code>
+     */
+    public static final int SLOT_UPDATE_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SlotFunctions valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static SlotFunctions forNumber(int value) {
+      switch (value) {
+        case 0: return SLOT_CREATE;
+        case 1: return SLOT_UPDATE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<SlotFunctions>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SlotFunctions> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SlotFunctions>() {
+            public SlotFunctions findValueByNumber(int number) {
+              return SlotFunctions.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return care.solve.protocol.schedule.entity.ScheduleProtos.getDescriptor().getEnumTypes().get(3);
+    }
+
+    private static final SlotFunctions[] VALUES = values();
+
+    public static SlotFunctions valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private SlotFunctions(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:main.SlotFunctions)
+  }
+
   public interface PatientOrBuilder extends
       // @@protoc_insertion_point(interface_extends:main.Patient)
       com.google.protobuf.MessageOrBuilder {
@@ -4861,8 +5262,15 @@ public final class ScheduleProtos {
       "rationInfo\030\005 \001(\0132\026.main.RegistrationInfo",
       "\"\032\n\004Type\022\010\n\004FREE\020\000\022\010\n\004BUSY\020\001\";\n\020Registra" +
       "tionInfo\022\023\n\013Description\030\001 \001(\t\022\022\n\nAttende" +
-      "eId\030\002 \001(\tB;\n#care.solve.protocol.schedul" +
-      "e.entityB\016ScheduleProtosZ\004mainb\006proto3"
+      "eId\030\002 \001(\t*N\n\017DoctorFunctions\022\021\n\rDOCTOR_C" +
+      "REATE\020\000\022\024\n\020DOCTOR_GET_BY_ID\020\001\022\022\n\016DOCTOR_" +
+      "GET_ALL\020\002*=\n\020PatientFunctions\022\022\n\016PATIENT" +
+      "_CREATE\020\000\022\025\n\021PATIENT_GET_BY_ID\020\001*F\n\021Sche" +
+      "duleFunctions\022\023\n\017SCHEDULE_CREATE\020\000\022\034\n\030SC" +
+      "HEDULE_GET_BY_OWNER_ID\020\001*1\n\rSlotFunction" +
+      "s\022\017\n\013SLOT_CREATE\020\000\022\017\n\013SLOT_UPDATE\020\001B;\n#c" +
+      "are.solve.protocol.schedule.entityB\016Sche",
+      "duleProtosZ\004mainb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
