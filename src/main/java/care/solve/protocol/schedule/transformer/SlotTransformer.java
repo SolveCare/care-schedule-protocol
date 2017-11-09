@@ -29,12 +29,15 @@ public class SlotTransformer implements ProtoTransformer<Slot, ScheduleProtos.Sl
 
     @Override
     public Slot transformFromProto(ScheduleProtos.Slot proto) {
-        return Slot.builder()
-                .slotId(proto.getSlotId())
+        Slot.SlotBuilder builder = Slot.builder()
                 .timeStart(proto.getTimeStart())
-                .timeFinish(proto.getTimeFinish())
-                .registrationInfo(registrationInfoTransformer.transformFromProto(proto.getRegistrationInfo()))
-                .availability(Slot.Type.valueOf(proto.getAvaliable().name()))
-                .build();
+                .timeFinish(proto.getTimeFinish());
+
+        if (proto.getSlotId() != null) {builder.slotId(proto.getSlotId());}
+        if (proto.getRegistrationInfo() != null) {builder.registrationInfo(registrationInfoTransformer.transformFromProto(proto.getRegistrationInfo()));}
+        if (proto.getAvaliable() != null) {builder.availability(Slot.Type.valueOf(proto.getAvaliable().name()));}
+        if (proto.getSlotId() != null) {builder.slotId(proto.getSlotId());}
+
+        return builder.build();
     }
 }

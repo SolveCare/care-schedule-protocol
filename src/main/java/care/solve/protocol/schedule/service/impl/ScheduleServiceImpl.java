@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -70,6 +71,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     public Slot createSlot(String scheduleId, Slot slot) {
+        slot.setSlotId(UUID.randomUUID().toString());
         ScheduleProtos.Slot protoSlot = slotTransformer.transformToProto(slot);
 
         String byteString = TextFormat.printToString(protoSlot);
