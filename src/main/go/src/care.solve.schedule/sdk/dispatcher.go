@@ -13,6 +13,13 @@ type Dispatcher struct {
 	mapping map[string]fn
 }
 
+func NewDispatcher() Dispatcher {
+	dispatcher := Dispatcher{}
+	dispatcher.mapping = make(map[string]fn)
+
+	return dispatcher
+}
+
 func (d Dispatcher) AddMapping(functionName string, function fn) {
 	d.mapping[functionName] = function
 }

@@ -41,7 +41,7 @@ func (s *ScheduleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 	s.scheduleService = careimpl.NewScheduleService(s.scheduler)
 	logger.Infof("Created ScheduleService: %v", s.scheduleService)
 
-	s.dispatcher = caresdk.Dispatcher{}
+	s.dispatcher = caresdk.NewDispatcher()
 
 	s.dispatcher.AddMapping(careproto.PatientFunctions_PATIENT_GET_BY_ID.String(), s.getPatientById)
 	s.dispatcher.AddMapping(careproto.PatientFunctions_PATIENT_CREATE.String(), s.createPatient)
@@ -72,7 +72,11 @@ func (s *ScheduleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response
 
 func (s *ScheduleChaincode) createPatient(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	encodedPatientByteString := args[0]
+	logger.Infof("encodedPatientByteString: %v", args[0])
+
 	patient, err := s.patientService.DecodeProtoByteString(encodedPatientByteString)
+	logger.Infof("patient: %v", patient)
+	logger.Infof("error: %v", err)
 	if err != nil {
 		//return shim.Error(err.Error()) //todo: investigate 'proto: bad wiretype for field main.Patient.UserId: got wiretype 1, want 2'
 	}

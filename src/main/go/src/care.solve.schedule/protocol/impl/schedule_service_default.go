@@ -4,7 +4,6 @@ import (
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	"github.com/golang/protobuf/proto"
 	"encoding/json"
-	"github.com/google/uuid"
 
 	careproto "../proto"
 	careprotocol "../../protocol"
@@ -47,7 +46,6 @@ func (s *ScheduleServiceDefault) CreateSlot(stub shim.ChaincodeStubInterface, sc
 		return nil, err
 	}
 
-	slot.SlotId = uuid.New().String()
 	s.logger.Infof("Add new slot: %v to schedule %v", slot, scheduleId)
 
 	schedule.Slots = append(schedule.Slots, &slot)
