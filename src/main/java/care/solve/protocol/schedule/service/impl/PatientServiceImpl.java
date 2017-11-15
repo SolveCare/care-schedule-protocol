@@ -24,16 +24,14 @@ public class PatientServiceImpl implements PatientService {
 
     private TransactionService transactionService;
     private HFClient peerAdminHFClient;
-    private ChaincodeID chaincodeId;
     private Channel healthChannel;
 
     private PatientToProtoTransformer patientToProtoTransformer;
 
     @Autowired
-    public PatientServiceImpl(TransactionService transactionService, HFClient peerAdminHFClient, ChaincodeID chaincodeId, Channel healthChannel, PatientToProtoTransformer patientToProtoTransformer) {
+    public PatientServiceImpl(TransactionService transactionService, HFClient peerAdminHFClient, Channel healthChannel, PatientToProtoTransformer patientToProtoTransformer) {
         this.transactionService = transactionService;
         this.peerAdminHFClient = peerAdminHFClient;
-        this.chaincodeId = chaincodeId;
         this.healthChannel = healthChannel;
         this.patientToProtoTransformer = patientToProtoTransformer;
     }
@@ -48,7 +46,6 @@ public class PatientServiceImpl implements PatientService {
         String byteString = new String(protoPatient.toByteArray());
         CompletableFuture<BlockEvent.TransactionEvent> futureEvents = transactionService.sendInvokeTransaction(
                 peerAdminHFClient,
-                chaincodeId,
                 healthChannel,
                 healthChannel.getPeers(),
                 ScheduleProtos.PatientFunctions.PATIENT_CREATE.name(),
@@ -63,7 +60,6 @@ public class PatientServiceImpl implements PatientService {
     public Patient get(String patientId) throws IOException {
         ByteString protoPatientByteString = transactionService.sendQueryTransaction(
                 peerAdminHFClient,
-                chaincodeId,
                 healthChannel,
                 ScheduleProtos.PatientFunctions.PATIENT_GET_BY_ID.name(),
                 new String[]{patientId});

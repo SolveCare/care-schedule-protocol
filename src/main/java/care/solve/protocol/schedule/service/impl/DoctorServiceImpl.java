@@ -25,17 +25,15 @@ public class DoctorServiceImpl implements DoctorService {
 
     private TransactionService transactionService;
     private HFClientFactory hfClientFactory;
-    private ChaincodeID chaincodeId;
     private Channel healthChannel;
 
     private DoctorToProtoTransformer doctorToProtoTransformer;
     private DoctorToProtoCollectionTransformer doctorToProtoCollectionTransformer;
 
     @Autowired
-    public DoctorServiceImpl(TransactionService transactionService, HFClientFactory hfClientFactory, ChaincodeID chaincodeId, Channel healthChannel, DoctorToProtoTransformer doctorToProtoTransformer, DoctorToProtoCollectionTransformer doctorToProtoCollectionTransformer) {
+    public DoctorServiceImpl(TransactionService transactionService, HFClientFactory hfClientFactory, Channel healthChannel, DoctorToProtoTransformer doctorToProtoTransformer, DoctorToProtoCollectionTransformer doctorToProtoCollectionTransformer) {
         this.transactionService = transactionService;
         this.hfClientFactory = hfClientFactory;
-        this.chaincodeId = chaincodeId;
         this.healthChannel = healthChannel;
         this.doctorToProtoTransformer = doctorToProtoTransformer;
         this.doctorToProtoCollectionTransformer = doctorToProtoCollectionTransformer;
@@ -51,7 +49,6 @@ public class DoctorServiceImpl implements DoctorService {
         String byteString = new String(protoDoctor.toByteArray());
         CompletableFuture<BlockEvent.TransactionEvent> futureEvents = transactionService.sendInvokeTransaction(
                 hfClientFactory.getClient(),
-                chaincodeId,
                 healthChannel,
                 healthChannel.getPeers(),
                 ScheduleProtos.DoctorFunctions.DOCTOR_CREATE.name(),
@@ -72,7 +69,6 @@ public class DoctorServiceImpl implements DoctorService {
     public Doctor get(String doctorId) throws IOException {
         ByteString protoDoctorByteString = transactionService.sendQueryTransaction(
                 hfClientFactory.getClient(),
-                chaincodeId,
                 healthChannel,
                 ScheduleProtos.DoctorFunctions.DOCTOR_GET_BY_ID.name(),
                 new String[]{doctorId});
@@ -85,7 +81,6 @@ public class DoctorServiceImpl implements DoctorService {
     public List<Doctor> getAll() throws IOException {
         ByteString protoDoctorsByteString = transactionService.sendQueryTransaction(
                 hfClientFactory.getClient(),
-                chaincodeId,
                 healthChannel,
                 ScheduleProtos.DoctorFunctions.DOCTOR_GET_ALL.name(),
                 new String[]{});

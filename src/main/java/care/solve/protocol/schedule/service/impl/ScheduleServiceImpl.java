@@ -28,17 +28,15 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     private TransactionService transactionService;
     private HFClient peerAdminHFClient;
-    private ChaincodeID chaincodeId;
     private Channel healthChannel;
 
     private ScheduleTransformer scheduleTransformer;
     private SlotTransformer slotTransformer;
 
     @Autowired
-    public ScheduleServiceImpl(TransactionService transactionService, HFClient peerAdminHFClient, ChaincodeID chaincodeId, Channel healthChannel, ScheduleTransformer scheduleTransformer, SlotTransformer slotTransformer) {
+    public ScheduleServiceImpl(TransactionService transactionService, HFClient peerAdminHFClient, Channel healthChannel, ScheduleTransformer scheduleTransformer, SlotTransformer slotTransformer) {
         this.transactionService = transactionService;
         this.peerAdminHFClient = peerAdminHFClient;
-        this.chaincodeId = chaincodeId;
         this.healthChannel = healthChannel;
         this.scheduleTransformer = scheduleTransformer;
         this.slotTransformer = slotTransformer;
@@ -52,7 +50,6 @@ public class ScheduleServiceImpl implements ScheduleService {
         String byteString = new String(scheduleProto.toByteArray());
         CompletableFuture<BlockEvent.TransactionEvent> futureEvents = transactionService.sendInvokeTransaction(
                 peerAdminHFClient,
-                chaincodeId,
                 healthChannel,
                 healthChannel.getPeers(),
                 ScheduleProtos.ScheduleFunctions.SCHEDULE_CREATE.name(),
@@ -77,7 +74,6 @@ public class ScheduleServiceImpl implements ScheduleService {
         String byteString = TextFormat.printToString(protoSlot);
         CompletableFuture<BlockEvent.TransactionEvent> futureEvents = transactionService.sendInvokeTransaction(
                 peerAdminHFClient,
-                chaincodeId,
                 healthChannel,
                 healthChannel.getPeers(),
                 ScheduleProtos.SlotFunctions.SLOT_CREATE.name(),
@@ -100,7 +96,6 @@ public class ScheduleServiceImpl implements ScheduleService {
         String byteString = TextFormat.printToString(protoSlot);
         transactionService.sendInvokeTransaction(
                 peerAdminHFClient,
-                chaincodeId,
                 healthChannel,
                 healthChannel.getPeers(),
                 ScheduleProtos.SlotFunctions.SLOT_UPDATE.name(),
@@ -111,7 +106,6 @@ public class ScheduleServiceImpl implements ScheduleService {
     public Schedule getSchedule(String ownerId) throws IOException, ChaincodeEndorsementPolicyParseException {
         ByteString protoScheduleByteString = transactionService.sendQueryTransaction(
                 peerAdminHFClient,
-                chaincodeId,
                 healthChannel,
                 ScheduleProtos.ScheduleFunctions.SCHEDULE_GET_BY_OWNER_ID.name(),
                 new String[]{ownerId});
